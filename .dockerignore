@@ -1,0 +1,13 @@
+# We want to install and build ourselves inside docker
+build
+node_modules
+
+# Exclude any files we don't need for running the development server
+# or are created by the npm install / build processes
+.idea
+.gitignore
+docker-compose.yml
+Dockerfile.dev.dockerignore
+Dockerfile.dev
+README.md
+package-lock.json
