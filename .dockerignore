@@ -6,7 +6,7 @@ node_modules
 # or are created by the npm install / build processes
 .idea
 .gitignore
-docker-compose.yml
+docker-compose-dev.yml
 Dockerfile.dev.dockerignore
 Dockerfile.dev
 README.md
