@@ -14,8 +14,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    ports:
-      - "3000:3000"
+#    ports:
+#      - "3000:3000"
     volumes:
       - "./src:/app/src"
       - "./public:/app/public"
