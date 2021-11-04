@@ -14,7 +14,9 @@ pipeline {
                         ./.run_tests.sh'''
             }
             stage('Publish') {
-                echo "hoi"
+                steps {
+                    echo "hoi"
+                }
             }
         }
     }
