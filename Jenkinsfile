@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                echo "hoi"
+                sh "ls"
             }
         }
     }
