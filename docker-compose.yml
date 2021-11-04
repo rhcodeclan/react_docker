@@ -1,6 +1,5 @@
 services:
   react-nginx:
-    profiles: ["prod"]
     build:
       context: .
       dockerfile: Dockerfile
