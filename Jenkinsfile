@@ -24,8 +24,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'AWS_KEY', passwordVariable: 'AWS_PASS', usernameVariable: 'AWS_USER')]) {
                     sh '''
-                        printf "16\n$AWS_USER\n$AWS_PASS\n" | eb init
-                        printf '16\n$AWS_USER\n$AWS_PASS\n' | aws configure --profile eb_cli
+                        printf "$AWS_USER\n$AWS_PASS\n" | aws configure --profile eb_cli
+                        printf "16\n1\n" | eb init
                     '''
                 }
             }
