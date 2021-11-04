@@ -44,6 +44,7 @@ pipeline {
     post {
         cleanup {
             // sh 'rm -r -f .elasticbeanstalk'
+            echo 'cleaning up'
         }
     }
 }
