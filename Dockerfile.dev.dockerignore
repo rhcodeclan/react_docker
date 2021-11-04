@@ -9,8 +9,7 @@ node_modules
 lib
 .idea
 .gitignore
-docker-compose-dev.yml
-Dockerfile.dev.dockerignore
-Dockerfile.dev
+docker-compose*
+Dockerfile*
 README.md
 package-lock.json

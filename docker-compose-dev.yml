@@ -1,8 +1,29 @@
 services:
-  react-nginx:
+  react-app:
+    profiles: ["dev"]
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./src:/app/src"
+      - "./public:/app/public"
+  react-app-test:
+    profiles: ["test"]
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+#    ports:
+#      - "3000:3000"
+    volumes:
+      - "./src:/app/src"
+      - "./public:/app/public"
+    command: npm run test
+  nginx:
     profiles: ["prod"]
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "8080:80"
