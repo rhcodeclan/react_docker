@@ -31,11 +31,18 @@ pipeline {
                 printf "16\n1\n" | eb init
                 '''
             }
+
+
         }
         stage('Publish') {
             steps {
                 sh "eb init -r 16 "
                 sh "zip zip *"
+            }
+        }
+        post {
+            cleanup {
+                sh 'rm -r -f .elasticbeanstalk'
             }
         }
     }
