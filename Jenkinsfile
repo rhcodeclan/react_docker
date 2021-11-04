@@ -17,13 +17,13 @@ pipeline {
         stage('Configure AWS') {
             environment {
                 AWS = credentials("AWS_KEY")
-                AWS_ACCESS_KEY_ID = "$AWS_KEY_USR"
+                AWS_ACCESS_KEY_ID = "$AWS_USR"
                 AWS_SECRET_ACCESS_KEY = "$AWS_PWD"
                 AWS_DEFAULT_REGION = 'eu-west-2'
             }
             steps {
                 sh '''
-                    printf '16\n' | eb init
+                    printf '16\n"$AWS_USR"\n"$AWS_PWD"\n' | eb init
                 '''
                 withCredentials([usernamePassword(credentialsId: 'AWS_KEY', passwordVariable: 'AWS_PASS', usernameVariable: 'AWS_USER')]) {
                     sh '''
