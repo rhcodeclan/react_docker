@@ -43,7 +43,7 @@ pipeline {
     }
     post {
         cleanup {
-            sh 'rm -r -f .elasticbeanstalk'
+            // sh 'rm -r -f .elasticbeanstalk'
         }
     }
 }
