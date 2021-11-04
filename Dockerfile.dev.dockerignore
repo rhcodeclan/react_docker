@@ -6,6 +6,7 @@ node_modules
 
 # Exclude any files we don't need for running the development server
 # or are created by the npm install / build processes
+lib
 .idea
 .gitignore
 docker-compose-dev.yml

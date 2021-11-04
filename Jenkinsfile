@@ -14,9 +14,18 @@ pipeline {
                         ./.run_tests.sh'''
             }
         }
+        stage('Configure AWS') {
+            environment {
+                AWS_ACCESS_KEY_ID = credentials('AWS_KEY')
+            }
+            steps {
+                sh "printf '$AWS_ACCESS_KEY_ID_USR\n$AWS_ACCESS_KEY_ID_PSW' | aws configure --profile eb_cli"
+            }
+        }
         stage('Publish') {
             steps {
-                sh "ls"
+                sh "eb init -r 16 "
+                sh "zip zip *"
             }
         }
     }
