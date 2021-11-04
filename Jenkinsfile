@@ -13,17 +13,9 @@ pipeline {
                         ./.build_image.sh && \\
                         ./.run_tests.sh'''
             }
-
-            post {
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
-                success {
-                    echo "Success"
-                }
-                failure {
-                    echo "failed"
-                }
-            }
+        }
+        stage('Publish') {
+            echo "hoi"
         }
     }
 }
