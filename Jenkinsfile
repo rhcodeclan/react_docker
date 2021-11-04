@@ -28,7 +28,7 @@ pipeline {
                     '''
                 }
                 sh '''
-                printf "n\n" | eb init
+                printf "n\n" | eb init --profile eb-cli
                 '''
             }
 
