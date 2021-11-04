@@ -28,7 +28,7 @@ pipeline {
                     '''
                 }
                 sh '''
-                printf "16\n1\n" | eb init
+                printf "16\n1\nn\n" | eb init
                 '''
             }
 
