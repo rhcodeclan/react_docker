@@ -8,6 +8,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+          This has been tested and published automatically through jenkins!
         </p>
         <a
           className="App-link"
