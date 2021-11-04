@@ -15,11 +15,11 @@ pipeline {
             }
         }
         stage('Configure AWS') {
-            environment {
-                AWS_ACCESS_KEY_ID = credentials('AWS_KEY')
-            }
             steps {
-                sh 'printf "$AWS_ACCESS_KEY_ID_USR\n$AWS_ACCESS_KEY_ID_PSW\n" | aws configure --profile eb_cli'
+                withCredentials([usernamePassword(credentialsId: 'AWS_KEY', passwordVariable: 'AWS_PASS', usernameVariable: 'AWS_USER')]) {
+                    echo $AWS_KEY
+                    sh 'printf "$AWS_PASS\n$AWS_KEY\n" | aws configure --profile eb_cli'
+                }
             }
         }
         stage('Publish') {
