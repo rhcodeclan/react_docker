@@ -19,7 +19,7 @@ pipeline {
                 AWS_ACCESS_KEY_ID = credentials('AWS_KEY')
             }
             steps {
-                sh "printf '$AWS_ACCESS_KEY_ID_USR\n$AWS_ACCESS_KEY_ID_PSW\n' | aws configure --profile eb_cli"
+                sh 'printf "$AWS_ACCESS_KEY_ID_USR\n$AWS_ACCESS_KEY_ID_PSW\n" | aws configure --profile eb_cli'
             }
         }
         stage('Publish') {

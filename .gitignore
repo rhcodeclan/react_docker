@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 # idea files
 .idea
-lib
+/lib
 # dependencies
 /node_modules
 /.pnp
