@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                sh "zip zip *"
+                sh "eb deploy"
             }
         }
     }
