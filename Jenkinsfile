@@ -28,7 +28,7 @@ pipeline {
                     '''
                 }
                 sh '''
-                printf "16\n1\nn\n" | eb init
+                printf "n\n" | eb init
                 '''
             }
 
@@ -36,7 +36,6 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                sh "eb init -r 16 "
                 sh "zip zip *"
             }
         }
