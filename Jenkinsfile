@@ -22,13 +22,10 @@ pipeline {
                 AWS_DEFAULT_REGION = 'eu-west-2'
             }
             steps {
-                sh '''
-                    echo "$AWS_ACCESS_KEY_ID"
-                    printf '16\n"$AWS_USR"\n"$AWS_PWD"\n' | eb init
-                '''
                 withCredentials([usernamePassword(credentialsId: 'AWS_KEY', passwordVariable: 'AWS_PASS', usernameVariable: 'AWS_USER')]) {
                     sh '''
-                        printf 'a\nb\neu-west-2\ntext\n' | aws configure --profile eb_cli
+                        printf '16\n$AWS_USR\n$AWS_PWD\n' | eb init
+                        printf '16\n$AWS_USR\n$AWS_PWD\n' | aws configure --profile eb_cli
                     '''
                 }
             }
