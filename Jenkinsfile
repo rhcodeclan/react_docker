@@ -15,10 +15,19 @@ pipeline {
 //            }
 //        }
         stage('Configure AWS') {
+            environment {
+                AWS = credentials("AWS_KEY")
+                AWS_ACCESS_KEY_ID = $AWS_KEY_USR
+                AWS_SECRET_ACCESS_KEY = $AWS_PWD
+                AWS_DEFAULT_REGION = us - west - 2
+            }
             steps {
+                sh '''
+                    eb init
+                '''
                 withCredentials([usernamePassword(credentialsId: 'AWS_KEY', passwordVariable: 'AWS_PASS', usernameVariable: 'AWS_USER')]) {
                     sh '''
-                        printf "a\nb\neu-west2\n" | aws configure --profile eb_cli
+                        printf "a\nb\neu-west-2\ntext\n" | aws configure --profile eb_cli
                     '''
                 }
             }
