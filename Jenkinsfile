@@ -17,7 +17,9 @@ pipeline {
         stage('Configure AWS') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'AWS_KEY', passwordVariable: 'AWS_PASS', usernameVariable: 'AWS_USER')]) {
-                    sh 'printf "a\n b " | aws configure --profile eb_cli'
+                    sh '''
+                        printf "a\nb\neu-west2\n" | aws configure --profile eb_cli
+                    '''
                 }
             }
         }
