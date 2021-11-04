@@ -13,10 +13,10 @@ pipeline {
                         ./.build_image.sh && \\
                         ./.run_tests.sh'''
             }
-            stage('Publish') {
-                steps {
-                    echo "hoi"
-                }
+        }
+        stage('Publish') {
+            steps {
+                echo "hoi"
             }
         }
     }
