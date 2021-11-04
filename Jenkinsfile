@@ -23,7 +23,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    eb init
+                    printf '16\n' | eb init
                 '''
                 withCredentials([usernamePassword(credentialsId: 'AWS_KEY', passwordVariable: 'AWS_PASS', usernameVariable: 'AWS_USER')]) {
                     sh '''
