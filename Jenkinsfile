@@ -2,8 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Cleanup aws eb'){
-            sh 'rm -r -f .elasticbeanstalk'
+        stage('Cleanup aws eb') {
+            steps {
+                sh 'rm -r -f .elasticbeanstalk'
+            }
         }
         stage('Build') {
             steps {
@@ -45,7 +47,7 @@ pipeline {
     }
     post {
         cleanup {
-             sh 'rm -r -f .elasticbeanstalk'
+            sh 'rm -r -f .elasticbeanstalk'
         }
     }
 }
