@@ -40,10 +40,10 @@ pipeline {
                 sh "zip zip *"
             }
         }
-        post {
-            cleanup {
-                sh 'rm -r -f .elasticbeanstalk'
-            }
+    }
+    post {
+        cleanup {
+            sh 'rm -r -f .elasticbeanstalk'
         }
     }
 }
